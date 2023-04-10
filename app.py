@@ -1,4 +1,4 @@
-from flask import Flask, render_template, Response
+from flask import Flask, render_template, Response, request
 import cv2
 import numpy as np
 
@@ -16,13 +16,16 @@ model.conf = 0.5
 def main_page():
      return render_template('index.html')
 
-@app.route('/astro_cam')
+@app.route('/astro_cam',method=['POST','GET'])
 def astro_cam():
-     return Response(gen_frames(), mimetype='multipart/x-mixed-replace; boundary=frame')
+     exp = 100;
+     if (request.data != None):
+          exp = request.data
+     return Response(gen_frames(exp), mimetype='multipart/x-mixed-replace; boundary=frame')
 
-def gen_frames():
+def gen_frames(exp):
      cap = cv2.VideoCapture(1)
-     cap.set(cv2.CAP_PROP_EXPOSURE, 500)
+     cap.set(cv2.CAP_PROP_EXPOSURE, exp)
      while True:
         success, frame = cap.read()  # read the camera frame
 
@@ -36,4 +39,3 @@ def gen_frames():
             frame = buffer.tobytes()
             yield (b'--frame\r\n'
                    b'Content-Type: image/jpeg\r\n\r\n' + frame + b'\r\n') 
-     
