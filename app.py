@@ -16,6 +16,10 @@ model.conf = 0.5
 def main_page():
      return render_template('index.html')
 
+@app.route('/time_line')
+def main_page():
+     return render_template('timeline.html')
+
 @app.route('/astro_cam')
 def astro_cam():
      return Response(gen_frames(), mimetype='multipart/x-mixed-replace; boundary=frame')
