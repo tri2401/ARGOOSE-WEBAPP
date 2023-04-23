@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <title>Future Work</title>
+        <!--<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css">-->
+        <style>
+          * {
+            box-sizing: border-box;
+          }
+          body {
+            padding: 0;
+            margin: 0;
+          }
+          p, h1, h2 {
+            padding-left: 100px;
+            padding-right: 100px;
+          }
+          p{
+            font-size: 18px;
+          }
+            .image-container {
+            text-align: center;
+          }
+          .image-container img {
+            display: inline-block;
+          }
+
+            
+        </style>
+    </head>
+      <body>
+
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <a class="navbar-brand" href="#">Navbar</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+          
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+              <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                  <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#">Link</a>
+                </li>
+                <li class="nav-item dropdown">
+                  <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Dropdown
+                  </a>
+                  <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <a class="dropdown-item" href="#">Action</a>
+                    <a class="dropdown-item" href="#">Another action</a>
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item" href="#">Something else here</a>
+                  </div>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link disabled" href="#">Disabled</a>
+                </li>
+              </ul>
+              <form class="form-inline my-2 my-lg-0">
+                <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+              </form>
+            </div>
+        </nav>
+        <br>
+        <h1>Future Work</h1>
+        <p>Due to budgetary and time limitations, converting our proof of concept project into an independent multi-sensorial system could have been more feasible.
+            However, the system that we have now can be expanded upon in future iterations of the project. Here are some ideas for future work:
+        </p>
+        <h2>Making the system more independent</h2>
+        <p>The primary way this can be achieved is by loading the inference script and YOLO dependencies onto a mini-computer like a NUC that can also act as an edge device.
+        </p> 
+        <h2>Weatherproofing</h2>
+        <p>With an edge device connected to the Astrocam, the entire system can be housed in a mount with a transparent dome that provides basic weatherproofing.
+        </p>
+        <h2>Improving vision</h2>
+        <p>Attaching lens, ie. a fisheye lens can increase the field of vision for drone detection. It should also require some de-warping as pre-processing. 
+            Additionally, adding another camera would allow stereovision that can be used to approximate the distance between the drone and the edge device.
+        </p>
+        <h2>Implementing secondary sensor</h2>
+        <p>We tried implementing acoustic sensing but found out reliable detection would require expensive equipment that is well outside of our budget. 
+            It may be worthwhile exploring other avenues like infra-red or RF (without legal restrictions).
+        </p>
+        <h2>Improving training</h2>
+        <p>To reduce the rate of false positives, constructing a custom dataset would be required. Preferably one built with footage featuring relevant drones in civilian spaces than mixing in military-related images that might not be ideal. Adding in negatives to offset the FP rate is crucial, we have tried 600 images for our 13k dataset - so that ratio should be increased. 
+            Updating the training framework to YOLOv8 might also be necessary.
+        </p>
+        
+        <h2>Initial Concept Design</h2>
+        <p>Here's a design we had in mind before all we faced all the roadblocks that prevented us from making the system a reality:</p>
+        <div class="image-container">
+            <img src="concept_design.png" alt="Initial Concept Design">
+        </div>
+        
+        <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+      </body>
+
+</html>
